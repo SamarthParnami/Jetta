@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+    <script src="https://aframe.io/releases/1.4.0/aframe.min.js"></script>
+    <title>Hello Cube</title>
+</head>
+<body>
+    <a-scene postion>
+    
+        <a-assets>
+            <img id="earth_day_8k" src="./asset/earth/8k_earth_daymap.jpg" thetaStart="0" thetaLength="180" >
+            <img id="stars+milkyway_8k" src="./asset/stars/8k_stars_milky_way.jpg">
+        </a-assets>
+      <a-sphere phi-start="0" phi-length="360"   animation="property: rotation; to: 0 360 0; loop: true; dur: 30000; easing:linear " radius="5" src="#earth_day_8k"></a-sphere>
+      
+      <a-sky  radius='10000' src="#stars+milkyway_8k"></a-sky>
+      <a-camera position="0 0 15"></a-camera>
+    </a-scene>
+</body>
+</html>
