@@ -4,37 +4,92 @@
     
     <script src="https://aframe.io/releases/1.4.0/aframe.min.js"></script>
     <script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar.js"></script>
-    <title>Hello Cube</title>
+    <title>Earth</title>
 </head>
-<body>
-    <a-scene embedded arjs="sourceType:webcam; debusUIEnables:true;">
+<body style="margin:0px; overflow:hidden;">
+    <a-scene embedded arjs="sourceType:webcam; debusUIEnables:true; detectionMode: mono_and_matrix; matrixCodeType: 3x3;" >
         <a-assets>
-            <a-asset-item id="mars_model" src="./asset/sun/Sun_1_1391000.glb"></a-asset-item>
+            <a-asset-item id="sun_model" src="./asset/sun/Sun_1_1391000.glb"></a-asset-item>
+            <a-asset-item id="mars_model" src="./asset/mars/Mars_1_6792.glb"></a-asset-item>
             <img id="stars+milkyway_8k" src="./asset/stars/8k_stars_milky_way.jpg">
         
+            <a-asset-item 
+          id="earth_model_day"
+          src="./asset/earth/Earth_1_12756.glb">
+        </a-asset-item>
+               
+        <a-asset-item id="moon_model" src="./asset/earth moon/Moon_1_3474.glb"></a-asset-item>
         </a-assets>
-        <a-marker preset="hiro">
-            <a-entity rotation="-65 0 0">
+        <a-marker type="barcode" value='0'>
+            <a-entity rotation="-90 0 0">
 
                 
                 <a-entity
-                scale="0.003 0.003 0.003"
-                gltf-model="#mars_model"
+                scale="0.005 0.005 0.005"
+                gltf-model="#earth_model_day"
                 position="0 0 0"
-                animation="property: rotation; to: 0 360 0; loop: true; dur: 300000; easing:linear ">
+                animation="property: rotation; to: 0 360 0; loop: true; dur: 30000; easing:linear ">
                 </a-entity>
            
-            <a-entity line="start: 0 0 0; end: 50 0 0; color: red;"></a-entity>
-            <a-entity line="start: 0 0 0; end: 0 50 0; color: yellow;"></a-entity>
-            <a-entity line="start: 0 0 0; end: 0 0 50; color: blue;"></a-entity>
+            <a-light position="0 0 50" type="directional" intensity="3.25">
+                <a-sky  radius='90' color="black" ></a-sky>
+                
+            </a-entity>
+            
+        </a-marker>
+        <a-marker type="barcode" value='2'>
+            <a-entity rotation="-75 0 0">
+
+                
+                <a-entity
+                scale="0.001 0.001 0.001"
+                gltf-model="#mars_model"
+                position="0 0 0"
+                animation="property: rotation; to: 0 360 0; loop: true; dur: 30000; easing:linear ">
+                </a-entity>
+           
             <a-light position="0 0 5" type="directional" intensity="3.25">
                 <a-sky  radius='90' src="#stars+milkyway_8k" ></a-sky>
                 
             </a-entity>
         </a-marker>
-       
-      <a-entity camera ></a-entity>
+        <a-marker type="barcode" value='1'>
+            <a-entity rotation="-65 0 0">
+
+                
+                <a-entity
+                scale="0.001 0.001 0.001"
+                gltf-model="#moon_model"
+                position="0 0 0"
+                animation="property: rotation; to: 0 360 0; loop: true; dur: 300000; easing:linear ">
+                </a-entity>
+           
+            <a-light position="0 0 5" type="directional" intensity="3.25">
+                <a-sky  radius='90' src="#stars+milkyway_8k" ></a-sky>
+                
+            </a-entity>
+        </a-marker>
+
+
+
+        <a-marker type="barcode" value="3">
+            <a-entity rotation="-65 0 0">
+
+                
+                <a-entity
+                scale="0.003 0.003 0.003"
+                gltf-model="#sun_model"
+                position="0 0 0"
+                animation="property: rotation; to: 0 360 0; loop: true; dur: 80000; easing:linear ">
+                </a-entity>
+           
+            <a-light position="0 0 5" type="directional" intensity="3.25">
+                <a-sky  radius='90' src="#stars+milkyway_8k" ></a-sky>
+                
+            </a-entity>
+        </a-marker>
+
+        <a-entity camera ></a-entity>
     </a-scene>
-    
 </body>
 </html>
