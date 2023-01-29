@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+    <script src="https://aframe.io/releases/1.4.0/aframe.min.js"></script>
+    <script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar.js"></script>
+    <title>Earth</title>
+</head>
+<body style="margin:0px; overflow:hidden;">
+    <a-scene embedded arjs="sourceType:webcam; debusUIEnables:true;" >
+        <a-assets>
+            <a-asset-item 
+          id="earth_model_day"
+          src="./asset/earth/Earth_1_12756.glb">
+        </a-asset-item>
+                <a-asset-item id="earth_model_day" src="./asset/earth/Earth_1_12756.glb">
+                </a-asset-item>
+            <img id="earth_day_8k" src="./asset/earth/8k_earth_daymap.jpg" thetaStart="0" thetaLength="180" >
+            <img id="earth_night_8k" src="./asset/earth/8k_earth_nightmap.jpg" thetaStart="0" thetaLength="180" >
+            <img id="stars+milkyway_8k" src="./asset/stars/8k_stars_milky_way.jpg">
+        </a-assets>
+        <a-marker preset="hiro">
+            
+<!--              
+            <a-sphere position="-1.5 0 0" rotation="-90 0 0"   radius="1" src="#earth_day_8k"></a-sphere>
+            <a-sphere position="1.5 0 0"  rotation="-90 0 0"  radius="1" src="#earth_day_8k"></a-sphere> -->
+            <!-- <a-sky  radius='50' src="#stars+milkyway_8k"></a-sky> -->
+      
+          <a-entity rotation="25 0 0">
+
+              
+              
+              <a-entity  scale="0.1 0.1 0.1" rotation="-90 0 0" >
+                  
+                  <a-entity 
+                  scale="0.01 0.01 0.01"
+                  gltf-model="#earth_model_day"
+                  position="0 0 0"
+                  animation="property: rotation; to: 0 360 0; loop: true; dur: 30000; easing:linear ">
+                </a-entity>
+                <!-- <a-sphere phi-start="0" phi-length="360"   animation="property: rotation; to: 0 360 0; loop: true; dur: 30000; easing:linear " radius="5" src="#earth_day_8k"></a-sphere> -->
+                <a-entity line="start: 0 0 0; end: 50 0 0; color: red;"></a-entity>
+                <a-entity line="start: 0 0 0; end: 0 50 0; color: yellow;"></a-entity>
+                <a-entity line="start: 0 0 0; end: 0 0 50; color: blue;"></a-entity>
+                <a-light position="0 0 5000" type="directional" intensity="7">
+                    <a-sky  radius='10010' src="#stars+milkyway_8k" ></a-sky>
+                    
+                </a-entity>
+                
+            </a-entity>
+            
+        </a-marker>
+        <a-entity camera ></a-entity>
+    </a-scene>
+</body>
+</html>

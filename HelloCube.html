@@ -6,7 +6,7 @@
     <title>Hello Cube</title>
 </head>
 <body>
-    <a-scene rotation="-90 0 0">
+    <a-scene rotation="0 0 0">
     
         <a-assets>
             <a-asset-item 
@@ -15,10 +15,12 @@
         </a-asset-item>
             <img id="earth_day_8k" src="./asset/earth/8k_earth_daymap.jpg" thetaStart="0" thetaLength="180" >
             <img id="stars+milkyway_8k" src="./asset/stars/8k_stars_milky_way.jpg">
+
+            <a-asset-item id="mars_model" src="./asset/mars/Mars_1_6792.glb"></a-asset-item>
         </a-assets>
+        
         <a-entity 
-        scale="0.01 0.01 0.01"
-            gltf-model="#earth_model_day"
+            gltf-model="#mars_model"
             position="0 0 0"
             animation="property: rotation; to: 0 360 0; loop: true; dur: 30000; easing:linear ">
         </a-entity>
@@ -26,9 +28,10 @@
       <a-entity line="start: 0 0 0; end: 50 0 0; color: red;"></a-entity>
       <a-entity line="start: 0 0 0; end: 0 50 0; color: yellow;"></a-entity>
       <a-entity line="start: 0 0 0; end: 0 0 50; color: blue;"></a-entity>
-      <a-light position="0 0 5" type="directional" intensity="4">
-      <a-sky  radius='10000' src="#stars+milkyway_8k" ></a-sky>
-      <a-camera position="0 0 5"></a-camera>
+      <a-light position="0 0 5" type="directional" intensity="3.25">
+      <a-sky  radius='9000' src="#stars+milkyway_8k" ></a-sky>
+      <a-camera position="0 0 1100"></a-camera>
     </a-scene>
+    
 </body>
 </html>

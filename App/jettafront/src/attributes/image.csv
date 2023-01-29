@@ -1,0 +1,14 @@
+Attribute,Component Mapping,Default Value
+color,material.color,#FFF
+height,geometry.height,1
+metalness,material.metalness,0
+opacity,material.opacity,1
+repeat,material.repeat,None
+roughness,material.roughness,0.5
+segments-height,geometry.segmentsHeight,1
+segments-width,geometry.segmentsWidth,1
+shader,material.shader,flat
+side,material.side,front
+src,material.src,None
+transparent,material.transparent,true
+width,geometry.width,1

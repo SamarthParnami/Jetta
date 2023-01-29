@@ -1,0 +1,6 @@
+Attribute,Component Mapping,Default Value
+autoplay,sound.autoplay,false
+loop,sound.loop,false
+on,sound.on,null
+src,sound.src,null
+volume,sound.volume,1

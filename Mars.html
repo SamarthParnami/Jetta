@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+    <script src="https://aframe.io/releases/1.4.0/aframe.min.js"></script>
+    <script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar.js"></script>
+    <title>Hello Cube</title>
+</head>
+<body>
+    <a-scene embedded arjs="sourceType:webcam; debusUIEnables:true;">
+        <a-assets>
+            <a-asset-item id="mars_model" src="./asset/sun/Sun_1_1391000.glb"></a-asset-item>
+            <img id="stars+milkyway_8k" src="./asset/stars/8k_stars_milky_way.jpg">
+        
+        </a-assets>
+        <a-marker preset="hiro">
+            <a-entity rotation="-65 0 0">
+
+                
+                <a-entity
+                scale="0.003 0.003 0.003"
+                gltf-model="#mars_model"
+                position="0 0 0"
+                animation="property: rotation; to: 0 360 0; loop: true; dur: 300000; easing:linear ">
+                </a-entity>
+           
+            <a-entity line="start: 0 0 0; end: 50 0 0; color: red;"></a-entity>
+            <a-entity line="start: 0 0 0; end: 0 50 0; color: yellow;"></a-entity>
+            <a-entity line="start: 0 0 0; end: 0 0 50; color: blue;"></a-entity>
+            <a-light position="0 0 5" type="directional" intensity="3.25">
+                <a-sky  radius='90' src="#stars+milkyway_8k" ></a-sky>
+                
+            </a-entity>
+        </a-marker>
+       
+      <a-entity camera ></a-entity>
+    </a-scene>
+    
+</body>
+</html>
